@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    {% load hello_extras %}
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'hello/normalize.css' %}" /> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/main.css' %}" />
+</head>
+<body class="back flex_box">
+    {% if request.user.is_authenticated %}
+    <div class="flex_box user_position">
+                {% if request.user.is_authenticated %}
+                <li class="user flex_box">{{user.username}}</li> 
+                <a class="blank_link" href ="{% url 'logout_user' %}"><button type="button" class="w">Выйти</button></a>
+                {% endif %}
+    </div>
+                
+        <div class="top-pannel flex_box">
+            <div class="btns">
+                {% if request.user|has_group:"Employee" %}
+                <a href = "{% url 'tasks' %}"><button type="submit" class="btn-new">Заказы</button></a>
+                {% endif %}
+                <a href = "{% url 'clients' %}"><button type="submit" class="btn-new">Клиенты</button></a>
+                {% if request.user|has_group:"Admin" %}
+                <a href = "{% url 'employees' %}"><button type="submit" class="btn-new">Сотрудники</button></a>
+                <a href = "{% url 'cars' %}"><button type="submit" class="btn-new">Машины</button></a>
+                {% endif %}
+                {% if request.user|has_group:"Logistics" %}
+                <a href = "{% url 'income' %}"><button type="submit" class="btn-new">Поставки</button></a>
+                {% endif %}
+                <a href = "{% url 'product' %}"><button type="submit" class="btn-new">Товар</button></a>
+            </div>
+        </div>
+        <div class="main flex_box">
+            <div class = "content flex_box">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    {% else %}
+    <h1 class="info">Вы не вошли в аккаунт</h1>
+    <a href = "{% url 'login_redirect' %}"><button type="button" class="btn-new">Войти в аккаунт</button></a>
+    {% endif %}
+</body>
+</html>

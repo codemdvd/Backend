@@ -1,0 +1,17 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+Report
+{% endblock %}
+{% block content %}
+<h1 class="text h_h">Получить отчёт</h1>
+<form method="get" class="form flex_box">
+<p class="text">Выберите id сотрудника</p>
+<input type="text" class="roll"  name="emp_id"></input>
+<p class="text">Выберите дату начала</p>
+<input type="text" class="roll"  name="date1"></input>
+<p class="text">Выберите дату конца</p>
+<input type="text" class="roll"  name="date2"></input>
+<button type="submit" class="roll">Insert</button>
+</form>
+<a class="btn-back" href = "{% url 'download_file' %}"><button type="submit" class="btn-action"> Скачать</button></a>
+{% endblock %}

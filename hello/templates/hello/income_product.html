@@ -1,0 +1,21 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="features">
+    <h1 class="h_h">Детали в этом заказе</h1>
+    <form class="form" method="post">
+        {% if income_product %}
+        {% for el in income_product %}
+            <div class="warning">
+                <h3 class="info">ID детали: {{ el.product_id }}</h3>
+                <p class="info">ID поставки: {{ el.income_id }}</p>
+                <p class="info">Количество комплектов: {{ el.amount }}</p>
+            </div>
+        {% endfor %}
+    </form>
+    <a class="btn-back" href = "{% url 'income' %}"><button type="submit" class="btn-action">Назад</button></a> 
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="features">
+    <h1 class="h_h">Коды статуса</h1>
+    <form class="form">
+        {% if role %}
+        {% for el in role %}
+            <div class="warning">
+                <h3 class="info">Код: {{ el.role_code }}</h3>
+                <p class="info">Название: {{ el.role_name }}</p>
+            </div>
+        {% endfor %}
+    </form>
+    <a class="btn-back" href = "{% url 'all_tasks' %}"><button type="submit" class="btn-action">Назад</button></a> 
+
+</div>
+{% endif %}
+{% endblock %}

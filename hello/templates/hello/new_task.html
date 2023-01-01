@@ -1,0 +1,26 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="features">
+    <h1 class="h_h">Форма по добавлению новой записи</h1>
+    <form method="post" class="form">
+        <div class="task_form">
+        {% csrf_token %}
+        {{ form.order_id }} <br>
+        {{form.address}} <br>
+        {{form.total_price}} <br>
+        {{form.client}} <br>
+        {{form.ord_status_code}} <br>
+        {{form.delivery_code}} <br>
+        {{form.executor}} <br>
+        {{form.payment_date}} <br>
+        <span class="error">{{ error }}</span>
+        </div>
+        <button class="roll btn-action">Создать</button>
+
+    </form>
+    <a href = "{% url 'tasks' %}" class="btn-back"><button type="submit" class="btn-action up right">Назад</button></a>
+</div>
+{% endblock %}

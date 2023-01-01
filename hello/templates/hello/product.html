@@ -1,0 +1,28 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="features">
+    <h1 class="h_h">Поиск деталей по названию</h1>
+    <form class="form">
+        <input type="search" class="form-control" name="search"></input>
+        <button class="btn-action" type="submit">Искать</button>
+        {% if product %}
+        {% for el in product %}
+            <div class="warning">
+                <h3 class="info">ID детали: {{ el.product_id }}</h3>
+                <p class="info">Название: {{ el.product_name }}</p>
+                <p class="info">Комплектов в наличии: {{ el.sets_left }}</p>
+                <p class="info">Артикул запчасти: {{ el.detail_number }}</p>
+                <p class="info">Производитель: {{ el.brand }}</p>
+                <p class="info">Цена за комплект: {{ el.product_price }}</p>
+
+            </div>
+        {% endfor %}
+        {% else %}
+            <p class="info"> Деталей нет! </p>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="features">
+    <h1 class="h_h">Форма по добавлению нового сотрудника</h1>
+    <form method="post" class="form">
+        <div class="task_form">
+        {% csrf_token %}
+        {{form.emp_id }} <br>
+        {{form.emp_name}} <br>
+        {{form.emp_login}} <br>
+        {{form.emp_password}} <br>
+        {{form.emp_ph_number}} <br>
+        {{form.role_code}} <br>
+        <span class="error">{{ error }}</span>
+        </div>
+        <button class="roll">Создать</button>
+
+    </form>
+    
+    <a href = "{% url 'employees' %}" class="btn-back"><button type="button" class="btn-action right">Назад</button></a>
+</div>
+{% endblock %}

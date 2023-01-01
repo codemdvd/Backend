@@ -1,0 +1,27 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="features">
+    <h1 class="h_h">Поиск сотрудников по названию</h1>
+    <form class="form">
+        <input type="search" class="form-control" name="search"></input>
+        <button class="btn-action" type="submit">Искать</button>
+        <a href="{% url 'new_emp' %}"><button class="btn-action" type="button">Зарегестрировать нового сотрудника</button></a>
+        {% if employee %}
+        {% for el in employee %}
+            <div class="warning">
+                <h3 class="info">ID сотрудника: {{ el.emp_id }}</h3>
+                <p class="info">Имя: {{ el.emp_name }}</p>
+                <p class="info">Логин: {{ el.emp_login }}</p>
+                <p class="info">Номер телефона: {{ el.emp_ph_number }}</p>
+                <p class="info"><a class="info" href = "{% url 'role_classifier' %}">Код роли</a>: {{ el.role_code.role_code }}</p>
+            </div>
+        {% endfor %}
+        {% else %}
+            <p class="info"> Клиентов нет! </p>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

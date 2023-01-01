@@ -1,0 +1,235 @@
+.flex_box{
+  display: block;
+}
+.back {
+  height: 100%;
+  min-width: 10%;
+  background: rgb(52, 56, 61);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main{
+  background-color: rgb(121, 121, 121);
+  box-shadow: 2px 5px 15px 2px #0c0c0cb7;
+  border : 3px ridge; 
+  box-shadow: inset;
+  width: 950px;
+  margin: auto;
+  border-radius: 10px;
+  justify-content: center;
+  position: relative;
+  top: 10%;
+}
+.content{
+  background-color: rgb(121, 121, 121);
+  flex: auto;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
+.features{
+  flex-direction: column;
+  margin: auto;
+
+}
+
+
+
+.top-pannel{
+  margin-top: 5px;
+  justify-content: space-around;
+  height: 60px;
+  text-align: center;
+  left: 75px;
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.user{
+  font-size:15px;
+  font-family:'Verdana';
+  padding:10px;
+  color:white;
+  border: thick double #727374; width: 100px; height: 30px;
+}
+.user_position{
+  position: fixed;
+  top: 75px;
+  left: 15%;
+}
+
+.btn-new {
+    box-shadow: 2px 5px 15px 2px #0c0c0c50;
+    transition: 0.5s;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #a5a69e;
+    width: 250px;
+    font-size: medium;
+    margin-top: 10px;
+  }
+  
+  .btn-new:hover {
+    transform: translate(0,-3px);
+    box-shadow: 0 20px 40px 0 rgb(162, 162, 153);
+  }
+  h1{
+    text-transform:uppercase;
+    font-size:20px;
+    font-family:'Verdana';
+    padding:20px;
+    color:white;
+  }
+  .btn-action{
+    box-shadow: 2px 5px 15px 2px #0c0c0c50;
+    transition: 0.5s;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #a5a69e;
+    width: 300px;
+    font-size: medium;
+    margin-top: 50px;
+    margin-left: 16%;
+  }
+  .roll{
+    transition: 0.5s;
+    box-shadow: 2px 5px 15px 2px #0c0c0c50;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #a5a69e;
+    width: 300px;
+    font-size: medium;
+    text-decoration: none;
+    margin-top: 13px;
+    /* margin-top: 15px; */
+    margin-left: 15%;
+  }
+  .roll_move{
+    justify-content: center;
+    display: flex;
+  }
+  .form{
+    /* float:center;
+    clear: both; */
+    width: 500px;
+    /* margin: 10px 0 0 37%; */
+    margin: auto;
+    /* text-align: left; */
+    flex-direction: column;
+    /* justify-content: center; */
+  }
+  .form-control{
+    transition: 0.5s;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #a5a69e;
+    width: 450px;
+    font-size: medium;
+    margin-top: 20px;
+    margin-right: 200px;
+  }
+  .text{
+    font-size:15px;
+    font-family:'Verdana';
+    padding:10px;
+    color:white;
+    height: 5px;
+    margin-left: 15%;
+  }
+  .warning{
+    float:center;
+    width: 450px;
+    text-align: left;
+    background-color: grey;
+    border-radius: 10px;
+    border-color: aliceblue;
+    height: auto;
+    flex-direction: column;
+    margin: 5px 0;
+
+
+  }
+  .warn_conteiner{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .info{
+    font-size:15px;
+    font-family:'Verdana';
+    padding:4px;
+    color:white;
+    width: auto;
+  }
+  .error{
+    font-family:'Verdana';
+    text-transform:uppercase;
+    top: 3px;
+    color:rgb(161, 46, 46);
+  }
+  body{
+    overflow-y: scroll;
+  }
+  .task_form{
+    width: 450px;
+    margin: auto;
+  }
+  html {
+    height: 100%;
+}
+
+.btn-back{
+  margin-left: 15%;
+}
+
+.enter{
+  margin-left: 10%;
+  margin-top: 7%;
+  width: 300px;
+}
+#wrapper{
+  margin: 13% 5%;
+}
+label{
+  font-size:15px;
+  font-family:'Verdana';
+  padding:10px;
+  color:white;
+  height: 5px;
+
+}
+.h_h{
+  margin: auto;
+}
+.p_task{
+  margin-left: 27%;
+}
+.moves{
+  flex-direction: column;
+}
+.up{
+  margin-bottom: 3%;
+}
+.blank_link{
+  text-decoration: none;
+}
+.w{
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  background: #a5a69e;
+  margin-top: 6%;
+}
+.right{
+  margin-left: 16.5%;
+}

@@ -1,0 +1,29 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="features">
+    <h1 class="h_h">Поставки</h1>
+    <form class="form">
+        {% if income %}
+        {% for el in income %}
+            <div class="warning">
+                <h3 class="info">Номер поставки: {{ el.income_id }}</h3>
+                <p class="info">Дата отправки: {{ el.sending_date }}</p>
+                <p class="info">Дата получения: {{ el.recieving_date }}</p>
+                <p class="info">Вес: {{ el.weight }}</p>
+                <p class="info">Статус: {{ el.status }}</p>
+                <a href = "{% url 'income_product' %}?income_id={{el.income_id}}"><button type="button" class="roll btn-action up">Детали в поставке</button></a>
+            </div>
+        {% endfor %}
+        <p class="info">Коды статуса:</p>
+        <p class="info">1 - отправлено</p>
+        <p class="info">2 - принято</p>
+
+        {% else %}
+            <p class="info"> Поставок нет! </p>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

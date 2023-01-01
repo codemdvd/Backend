@@ -1,0 +1,18 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+{% load hello_extras %}
+<div class="features">
+        <div class="moves">
+        <h1 class="info h_h">Выберите действие</h1>
+        {% if request.user|has_group:"Logistics" %}
+        {% else %}
+        <a class="btn-back" href = "{% url 'all_tasks' %}"><button type="submit" class="btn-action">Все заказы</button></a>
+        <a class="btn-back" href = "{% url 'new_task' %}"><button type="submit" class="btn-action">Новый заказ</button></a>
+        {% endif %}
+        </div>
+
+</div>
+{% endblock %}

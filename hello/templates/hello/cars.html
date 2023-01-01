@@ -1,0 +1,24 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="features">
+    <h1 class="h_h">Обслуживаемые машины</h1>
+    <form class="form">
+        {% if cars %}
+        {% for el in cars %}
+            <div class="warning">
+                <h3 class="info">ID машины: {{ el.car_id }}</h3>
+                <p class="info">VIN код: {{ el.car_vin_code }}</p>
+                <p class="info">Производитель: {{ el.car_brand }}</p>
+                <p class="info">Тип двигателя: {{ el.engine_type }}</p>
+                <p class="info">ID клиента: {{ el.client_id }}</p>
+            </div>
+        {% endfor %}
+        {% else %}
+            <p class="info"> Клиентов нет! </p>
+    </form>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="features flex_box">
+    <h1 class="info h_h">Поиск заданий по адресу</h1>
+    <form method="get" class="form flex_box">
+        <!-- {{ form }} -->
+        <input type="search" class="roll btn-action"  name="search"></input>
+            <button class="roll btn-action" type="submit">Искать</button>
+
+            <span class="error">{{ error1 }}</span>
+       <!-- {% if order %} -->
+            <p class="text p_task">
+                Найдено заказов: {{ c }}
+            </p>
+            <div class="warn_conteiner flex_box">
+        {% for el in order %}
+            <div class="warning flex_box">
+                <h3 class="info">Номер заказа: {{ el.order_id }} </h3>
+                <h3 class="info">Адрес: {{ el.address }}</h3>
+                <p class="info">Стоимость: {{ el.total_price }}</p>
+                <p class="info">ID клиента: {{ el.client_id }}</p>
+                <p class="info"><a class="info" href = "{% url 'status_classifier' %}">Код статуса: </a>{{ el.ord_status_code.ord_status_code }}</p>
+                <p class="info"><a class="info" href = "{% url 'delivery_classifier' %}">Код доставки: </a>{{ el.delivery_code.delivery_code }}</p>
+                <p class="info">ID исполнителя: {{ el.executor_id }}</p>
+                <p class="info">Дата оплаты: {{ el.payment_date }}</p>
+                <a href = "{% url 'order_product' %}?order_id={{el.order_id}}"><button type="button" class="roll btn-action">&#128712;</button></a>
+                <a href = "{% url 'update_order' %}?order_id={{el.order_id}}"><button type="button" class="roll btn-action up">Изменить</button></a>
+            </div>
+        
+        {% endfor %}
+    </div>
+        {% else %}
+            <p> У вас нет заказов! </p>
+        {% endif %}
+    </form>
+    <a class="btn-back" href = "{% url 'tasks' %}"><button type="submit" class="btn-action up">Назад</button></a> 
+</div>
+{% endblock %}
+

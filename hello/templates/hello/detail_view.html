@@ -1,0 +1,45 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+
+{% endblock %}
+{% block content %}
+<div class="features">
+    <form action="{% url 'all_tastks' %}",method="get" class="form">
+        {{ form }}
+        <p class="text">Выберите критерий поиска</p>
+        <select class="roll" name="roll1">
+            <option>Номер задания</option>
+            <option>Название</option>
+            <option>Дата создания</option>
+            <option>Исполняющий</option>
+            <option>Статус</option>
+            <option>Автор</option>
+            <option>Дата окончания</option>
+        </select>
+        <p class="text">Введите критерий поиска</p>
+        <input type="search" class="roll" name="q"></input>
+        {% if tasks %}
+        <p class="text">
+            Найдено Заданий{{ c }}
+        </p>
+        {% for el in tasks %}
+        {% c = c + 1 %}
+            <div class="warning">
+                <h3 class="info">Номер задания:{{ el.task_id }}</h3>
+                <h3 class="info">Название:{{ el.task_name }}</h3>
+                <p class="info">Дата создания:{{ el.creation_date }}</p>
+                <p class="info">ID контактного лица:{{ el.contact_person_id }}</p>
+                <p class="info">ID исполнителя:{{ el.executor_id }}</p>
+                <p class="info">Номер контракта:{{ el.contract_number }}</p>
+                <p class="info">Статус:{{ el.task_status }}</p>
+                <p class="info">ID автора:{{ el.author_id }}</p>
+            </div>
+        {% endfor %}
+        {% else %}
+            <p> У вас нет заданий! </p>
+        {% endif %}
+    </form>
+    <a href = "{% url 'tasks' %}"><button type="submit" class="btn-action">Назад</button></a> 
+
+</div>
+{% endblock %}
